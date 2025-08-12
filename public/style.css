@@ -1,0 +1,155 @@
+.site-header {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.welcome-heading {
+  font-size: 32px;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.talkit-brand {
+  color: #4facfe;
+  font-style: italic;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: linear-gradient(to bottom right, rgb(5, 12, 53), rgb(0, 0, 0));
+  display: flex;
+  justify-content: flex-end; /* moves box to the right */
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding-right: 100px; /* optional: adds space from right edge */
+}
+
+
+/* Animated gradient border wrapper */
+.animated-border {
+  padding: 4px; /* border thickness */
+  border-radius: 12px;
+  background: linear-gradient(270deg, #ff0057, #00f2fe, #4facfe, #43e97b, #ff0057);
+  background-size: 600% 600%;
+  animation: borderAnimation 8s ease infinite;
+}
+
+/* Border animation keyframes */
+@keyframes borderAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Container styles (inner content box) */
+.container {
+  background-color: #070707;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 300px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+form input {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+a {
+  display: inline-block;
+  margin-top: 15px;
+  color: #3498db;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+
+.main-wrapper {
+  display: flex;
+  height: 100vh;
+  
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+
+.left-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1{
+  color: #ccc;
+  font-size: 50px;
+  font-style: italic;
+  font-family: serif;
+}
+
+p{
+  color: #ccc;
+  font-size: 25px;
+}
+
+.site-footer {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 12px;
+  font-family: 'Courier New', cursive;
+}
+
+.dev-name {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.dev-name.sujit {
+  color: #4facfe;
+}
+
+.dev-name.ayush {
+  color: #4facfe;
+}

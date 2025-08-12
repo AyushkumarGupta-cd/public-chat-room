@@ -1,0 +1,297 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 700px;
+    margin-left: 15%;
+    margin-right: 20%;
+    box-shadow: 0 12px 12px rgb(240, 240, 240);
+}
+
+/* Header */
+.chat-header {
+    background: #5d49b4;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5em;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.486);
+}
+
+/* Messages */
+.chat-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    background-color: #b4bac270;
+}
+
+.chat-messages {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chat-messages li {
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-radius: 8px;
+    max-width: 75%;
+    word-wrap: break-word;
+    background: #82d3f8;
+}
+
+/* Alternate styling for messages (sent by user) */
+.chat-messages li.self {
+    background: #b4bac2;
+    color: #490606;
+    margin-left: auto;
+}
+
+/* Input Container */
+.chat-input-container {
+    display: flex;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    background: #e7e4e9;
+}
+
+.chat-input-container input {
+    flex: 1;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.chat-input-container button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background: #007BFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.chat-input-container button:hover {
+    background: #0056b3;
+}
+
+/* Scrollbar Styling */
+.chat-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+    background: #dddddd;
+    border-radius: 4px;
+}
+
+
+.chat-messages li.incoming {
+    background: #f1f1f1;
+    color: #333;
+    margin-right: auto;
+}
+
+.chat-messages li strong {
+    font-weight: bold;
+    color: #555;
+}
+
+.chat-messages li.system {
+    background: #fffae6;
+    color: #856404;
+    text-align: center;
+    font-style: italic;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+/* Fade-in animation for new messages */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide-in animation for system messages */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Chat message animations */
+.chat-messages li {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* System message animations */
+.chat-messages li.system {
+    animation: slideIn 0.5s ease-in-out;
+    background: #fffae6;
+    color: #856404;
+    text-align: center;
+    font-style: italic;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+/* Hover effect for messages */
+.chat-messages li:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+}
+
+/* Smooth transition for new messages */
+.chat-messages {
+    scroll-behavior: smooth;
+}
+
+
+/* Button hover and click animation */
+#send {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#send:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#send:active {
+    transform: scale(0.95);
+}
+
+/* Wrap chat + sidebar horizontally */
+.main-wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 200px;
+    background-color: #abdff748;
+    padding: 10px;
+    box-shadow: 2px 0 5px rgb(241, 240, 240);
+    overflow-y: auto;
+}
+
+.menu-header {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    background: #eee;
+    margin: 5px 0;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.active-user-circle {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background-color: green;
+    vertical-align: middle;
+}
+
+.music-sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  background: #abdff748;
+  box-shadow: 0 15px 15px rgb(241, 240, 240);
+  padding: 15px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+  z-index: 1000;
+}
+
+.music-sidebar h2 {
+  margin-top: 0;
+  font-size: 1.4em;
+  color: #ffffff;
+}
+
+.music-sidebar input {
+  width: 70%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.music-sidebar button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.music-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.music-sidebar li {
+  padding: 5px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.music-sidebar li:hover {
+  background: #e0e0e0;
+}
+
+.music-sidebar audio {
+  width: 100%;
+  margin-top: 10px;
+}
