@@ -11,14 +11,15 @@ const { Server } = require('socket.io');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3000; // ✅ Render will give PORT
+const PORT = process.env.PORT || 3000;
 const server = http.createServer(app);
 const io = new Server(server);
 
-const MONGO_URI = process.env.MONGO_URI;
-const SESSION_SECRET = process.env.SESSION_SECRET;
+// ✅ Handle both local and Render env var names
+const MONGO_URI = process.env.MONGO_URI || process.env.MONGO_URL;
+const SESSION_SECRET = process.env.SESSION_SECRET || 'fallback-secret';
 
-// ✅ MongoDB with retry and keepAlive for stability
+// ===== MongoDB Connection =====
 mongoose
   .connect(MONGO_URI, {
     useNewUrlParser: true,
@@ -28,7 +29,10 @@ mongoose
     keepAlive: true
   })
   .then(() => console.log('✅ Connected to MongoDB'))
-  .catch((err) => console.error('❌ MongoDB connection error:', err));
+  .catch((err) => {
+    console.error('❌ MongoDB connection error:', err);
+    process.exit(1); // Stop app if DB fails
+  });
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
