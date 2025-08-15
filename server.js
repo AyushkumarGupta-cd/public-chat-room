@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express'); 
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
@@ -108,6 +108,11 @@ app.get('/logout', (req, res) => {
     res.clearCookie('connect.sid');
     res.json({ message: '✅ Logged out successfully' });
   });
+});
+
+// ====================== HEALTH CHECK (For Render) ======================
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
 });
 
 // ====================== START SERVER ======================
