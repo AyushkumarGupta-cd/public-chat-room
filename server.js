@@ -157,7 +157,7 @@ io.on('connection', (socket) => {
     });
 
     socket.on('chat message', (data) => {
-        io.emit('chat message', data); // Broadcast to all, including sender
+        socket.broadcast.emit('chat message', data); // Broadcast to all, including sender
     });
 
     socket.on('disconnect', () => {
