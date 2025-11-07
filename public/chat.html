@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="style2.css">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@1.26.3/index.min.js"></script>
+
+</head>
+<body>
+
+<div class="main-wrapper">
+
+  <!-- LEFT SIDEBAR -->
+  <div class="sidebar">
+    <header class="menu-header">👥 Active Users</header>
+    <ul id="active-users"></ul>
+  </div>
+
+  <!-- CHAT AREA -->
+  <div class="app-container">
+      <header class="chat-header">
+          <h1>💬 Real-Time Chat</h1>
+      </header>
+      <div class="chat-container">
+          <ul id="messages" class="chat-messages"></ul>
+      </div>
+      <div class="chat-input-container">
+        <input id="message" autocomplete="off" placeholder="Type a message...">
+        <div class="chat-input-container">
+          <button id="emoji-btn">😊</button>
+          <emoji-picker id="emoji-picker" style="display: none; position: absolute; bottom: 60px; left: 10px; z-index: 999;"></emoji-picker>
+        </div>
+        <button id="send">➤</button>
+      </div>
+
+  </div>
+
+  <div class="right-sidebar">
+    
+    <div class="music-sidebar">
+      <header class="menu-header">
+      <h1>🎵 Music</h1>
+      </header>
+
+      <div id="now-playing">Now Playing: —</div>
+
+      <audio id="audio" preload="metadata" controls></audio>
+
+      <div class="controls">
+        <button onclick="prevSong()">⏮️</button>
+        <button onclick="togglePlay()">▶️/⏸️</button>
+        <button onclick="nextSong()">⏭️</button>
+        <input type="range" id="progress" value="0" step="1">
+      </div>
+
+      <div class="volume">
+        Volume: <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+      </div>
+
+      <div class="search-music">
+        🔍 <input type="text" id="search-music" placeholder="Search songs...">
+      </div>
+      <ul class="music-list" id="playlist"></ul>
+
+    </div>
+
+  </div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
