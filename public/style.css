@@ -153,3 +153,29 @@ p{
 .dev-name.ayush {
   color: #4facfe;
 }
+
+@media (max-width: 1000px) {
+
+  body{
+    flex-direction: column;
+  }
+
+  .site-header {
+    left: 45%;
+    margin-top: 20px;
+  }
+  .main-wrapper {
+    flex-direction: column-reverse;
+    margin-top: 500px;
+    margin-bottom: 300px;
+  }
+
+ .text-section {
+    margin-bottom: auto;
+    text-align: center;
+  }
+
+  .animated-border{
+        margin-bottom: 50px;
+  }
+}
