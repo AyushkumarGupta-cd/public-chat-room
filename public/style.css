@@ -167,7 +167,6 @@ p{
   .main-wrapper {
     flex-direction: column-reverse;
     margin-top: 500px;
-    margin-bottom: 300px;
   }
 
  .text-section {
@@ -177,5 +176,11 @@ p{
 
   .animated-border{
         margin-bottom: 50px;
+  }
+
+  .site-footer{
+    transform: none;
+    position: sticky;
+    left: 0%;
   }
 }

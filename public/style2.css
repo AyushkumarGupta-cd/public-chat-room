@@ -297,9 +297,7 @@ body {
 }
 
 @media (max-width: 1000px) {
-    body{
-        /* background-image: url(pexels-brakou-1723637.jpg); */
-    }
+   
     .main-wrapper{
         flex-direction: column;
         height: auto;
