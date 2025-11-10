@@ -160,6 +160,19 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('chat message', data); // Broadcast to all, including sender
     });
 
+    // 💬 Typing indicator events (Enhanced for multiple users)
+const typingUsers = new Set();
+
+socket.on("typing", (data) => {
+    typingUsers.add(data.username);
+    io.emit("updateTypingUsers", Array.from(typingUsers));
+});
+
+socket.on("stopTyping", (data) => {
+    typingUsers.delete(data.username);
+    io.emit("updateTypingUsers", Array.from(typingUsers));
+});
+
     socket.on('disconnect', () => {
         console.log('❌ A user disconnected');
         if (currentUsername) {

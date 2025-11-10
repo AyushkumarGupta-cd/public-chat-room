@@ -155,32 +155,42 @@ p{
 }
 
 @media (max-width: 1000px) {
-
-  body{
+  body {
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto; /* ✅ allow natural height instead of 100vh */
+    padding-right: 0;
+    padding: 20px 0;
   }
 
-  .site-header {
-    left: 45%;
-    margin-top: 20px;
+  h1 {
+    align-items: center;
+    justify-content: center;
+    display: flex;
   }
   .main-wrapper {
     flex-direction: column-reverse;
-    margin-top: 500px;
+    height: auto; /* ✅ prevents pushing content out of view */
+    margin-top: 100px; /* smaller gap */
+    padding: 0 20px;
   }
 
- .text-section {
-    margin-bottom: auto;
-    text-align: center;
+  .animated-border {
+    margin-bottom: 50px;
   }
 
-  .animated-border{
-        margin-bottom: 50px;
-  }
-
-  .site-footer{
+  .site-header {
+    position: static; /* ✅ avoids overlap */
     transform: none;
-    position: sticky;
-    left: 0%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .site-footer {
+    position: static; /* ✅ footer flows naturally */
+    text-align: center;
+    margin-top: 50px;
+    display: contents;
   }
 }

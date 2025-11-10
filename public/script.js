@@ -55,6 +55,38 @@ socket.on('user joined', (msg) => {
     addSystemMessage(msg); // Display system message
 });
 
+const typingDisplay = document.getElementById('typingDisplay'); // 👈 ADD THIS
+
+// 💬 Enhanced Typing Indicator (multiple users)
+let typing = false;
+let typingTimeout;
+
+messageInput.addEventListener("input", () => {
+  if (!typing) {
+    typing = true;
+    socket.emit("typing", { username });
+  }
+
+  clearTimeout(typingTimeout);
+  typingTimeout = setTimeout(() => {
+    typing = false;
+    socket.emit("stopTyping", { username });
+  }, 1500);
+});
+
+socket.on("updateTypingUsers", (users) => {
+  const othersTyping = users.filter(u => u !== username);
+  if (othersTyping.length === 0) {
+    typingDisplay.textContent = "";
+  } else if (othersTyping.length === 1) {
+    typingDisplay.textContent = `${othersTyping[0]} is typing...`;
+  } else if (othersTyping.length === 2) {
+    typingDisplay.textContent = `${othersTyping[0]} and ${othersTyping[1]} are typing...`;
+  } else {
+    typingDisplay.textContent = `${othersTyping.slice(0, 2).join(", ")} and ${othersTyping.length - 2} others are typing...`;
+  }
+});
+
 // Function to add a message to the chat
 function addMessage(user, msg, isSelf) {
     const item = document.createElement('li');
